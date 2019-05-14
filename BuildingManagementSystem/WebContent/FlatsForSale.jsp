@@ -15,16 +15,12 @@ table {
   border-collapse: collapse;
   width: 80%;
 }
-body {
-  background-color: #7FFFD4;
-}
 
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 20px;
 }
-
 </style>
 
 </head>

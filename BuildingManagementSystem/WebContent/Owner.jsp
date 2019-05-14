@@ -44,6 +44,55 @@ body {
 .topnav-right {
   float: right;
 }
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
 </style>
 
 </head>
@@ -70,7 +119,7 @@ body {
     <a href="DisplayFacilities" class="alert-link">FACILITIES</a>.
   </div>
   <div class="alert alert-danger">
-    <a href="GetAllRoomsByFloorNo.jsp" class="alert-link">FLATS IN THE PARTICULAR FLOOR</a>.
+    <a href="#popup1" class="alert-link">FLATS IN THE PARTICULAR FLOOR</a>.
   </div>
    <div class="alert alert-danger">
     <a href="AddFacility.jsp" class="alert-link">ADD FACILITY</a>.
@@ -78,5 +127,20 @@ body {
   
 </div>
 
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<a class="close" href="#" >&times;</a>
+		<div class="content">
+			<form action="getRoomsDetailsByFloorNo" method="POST">
+                Enter Floor No :<input type="text" name="fid"><br/>
+                <input type="submit" value="SUBMIT">
+			</form> 
+		</div>
+	</div>
+</div>
+
+
+
 </body>
 </html>
+
